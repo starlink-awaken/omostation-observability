@@ -1,72 +1,50 @@
-# AGENTS.md — observability (Langfuse 可观测性部署)
+# AGENTS.md — observability
 
-> X 层 (横切) · Docker Compose 部署
-> 状态: 🟢 Active
-> 最后更新: 2026-06-24
+    > Scope: project-local developer guide for `observability`.
+    > Workspace rules live in [`../../AGENTS.md`](../../AGENTS.md); project metadata lives in [`../../docs/project-registry.yaml`](../../docs/project-registry.yaml).
 
-## Project Identity
+    ## Role
 
-observability 是 eCOS v5 系统的**可观测性基础设施**，基于 Langfuse (LLM 应用专用 observability 平台) 部署。
+    - Layer: X
+    - Stack: Docker / compose
+    - Responsibility: Langfuse / OTEL 可观测性部署面
 
-- **不是 Python 包**: 仅 docker-compose.yml + 配置
-- **不参与 runtime 链路**: 独立部署，通过 HTTP 接收 trace 数据
-- **5+4+1+1 架构位置**: X 横切层 (与 aetherforge/model-driven/bus-foundation 并列)
+    Do not copy volatile facts such as test counts, tool counts, service counts, ports, or current health into this file.
 
-## 部署架构
+    ## Before Editing
 
-```yaml
-# docker-compose.yml
-services:
-  langfuse-web:        # Langfuse Web UI (port 3000)
-  langfuse-worker:     # 后台处理 worker
-  postgres:            # 元数据存储
-  clickhouse:          # trace 存储
-  redis:               # 缓存
-  minio:               # 对象存储
-```
+    1. Read this file and [`CLAUDE.md`](CLAUDE.md) when it exists.
+    2. Check `git status --short` inside this project and at the workspace root.
+    3. Read the specific source or tests you are about to change.
+    4. Prefer project-local commands and targeted tests.
 
-## 端口
+    ## Commands
 
-| 端口 | 服务 | 说明 |
-|------|------|------|
-| 3000 | langfuse-web | Web UI |
-| 5433 | postgres | 元数据 (宿主机映射,避免与本地 postgres 5432 冲突) |
-| 9000 | minio | 对象存储 (内部) |
+    ```bash
+    docker compose up -d
+docker compose ps
+docker compose logs -f
+    ```
 
-详见 `protocols/port-registry.yaml`。
+    ## Key Files
 
-## 启动
+    - docker-compose.yml
+- .env.example
 
-```bash
-cd projects/observability
-docker compose up -d
-# 访问 http://localhost:3000
-```
+    ## Gotchas
 
-## 与 eCOS 集成
+    - 服务端口和外部访问地址以端口注册表和部署环境为准。
+- 不要提交真实密钥或本地 .env。
 
-所有 L1/L2 项目 (kairon/gbrain/aetherforge/omo) 通过 Langfuse SDK 上报 trace:
-- `OMITL_TRACES_EXPORTER=otlp` (环境变量)
-- `OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:3000/api/public/otel`
+    ## Verification
 
-## 治理合规
+    - Documentation-only changes: run `uv run --with "pyyaml" python "../../bin/doc-ssot-lint.py" --json` from this project or from the workspace root.
+    - Code changes: run the narrowest relevant project test first, then broaden if shared contracts changed.
+    - Cross-layer behavior: verify the caller and the callee, not just the touched module.
 
-- ✅ ARCHITECTURE.md / BOUNDARY.md / CALLCHAIN.md 完整
-- ⚠️ 无 pyproject.toml (Docker 项目，不需要)
-- ⚠️ 无 tests/ 目录 (Docker 部署，无单元测试)
-- ⚠️ 无 Python 源码 (架构上不需要)
+    ## SSOT Pointers
 
-## 关联
-
-- `protocols/port-registry.yaml` — 端口注册
-- `.omo/_truth/registry/mutation-surfaces.yaml` — 治理面写入入口
-- `AGENTS.md` (根) — 工作区指南
-
-## Workspace-Wide Governance (2026-06-24)
-
-This project follows the workspace-level governance conventions documented in the root `AGENTS.md`:
-
-- **Agent Mutation Protocol**: Any autonomous agent/cron/daemon that modifies workspace state must emit `agent_mutation_intent`, avoid direct file I/O to `.omo/`/`spaces/`, and commit immediately. See `.omo/standards/agent-mutation-protocol.md` for the full protocol.
-- **SSOT Guardian**: Run `python3 bin/ssot-guardian.py` from the workspace root before committing to detect task-count, current-wave, submodule-pointer, or direct-omo-io drift.
-- **direct-omo-io**: Scripts must route writes to `.omo/` through `omo CLI`, `projects/omo` core, or `projects/c2g` ingress — never via raw `open()/mkdir()/write_text()`.
-- **Submodule Governance**: Commit changes inside the submodule first, then bump the root-repo pointer; `git submodule status` with a `+` prefix indicates pending drift.
+    - Workspace architecture: [`../../ARCHITECTURE.md`](../../ARCHITECTURE.md)
+    - Layer index: [`../../LAYER-INDEX.md`](../../LAYER-INDEX.md)
+    - Project metadata: [`../../docs/project-registry.yaml`](../../docs/project-registry.yaml)
+    - Runtime state: [`../../.omo/state/system.yaml`](../../.omo/state/system.yaml)
