@@ -20,6 +20,21 @@ services:
       timeout: 5s
       retries: 5
 
+  webhook-bridge:
+    image: python:3.12-slim
+    depends_on:
+      langfuse-server:
+        condition: service_healthy
+    volumes:
+      - ./webhook-bridge.py:/app/webhook-bridge.py:ro
+    environment:
+      - LANGFUSE_URL=http://langfuse-server:3000
+      - LANGFUSE_API_KEY=${LANGFUSE_API_KEY:-}
+      - OMO_WEBHOOK_URL=${OMO_WEBHOOK_URL:-http://host.docker.internal:9100/webhook}
+      - POLL_INTERVAL=${POLL_INTERVAL:-60}
+    command: ["python", "/app/webhook-bridge.py"]
+    restart: unless-stopped
+
   db:
     image: postgres:15
     restart: always
