@@ -6,7 +6,7 @@
 > **Health**: See local infrastructure verification
 > **SSOT**: 基础设施可用性、服务状态以本地运行验证和 workspace governance SSOT 为准
 >
-> 系统全景参见：[`docs/ARCHITECTURE-DIAGRAM.md`](../docs/ARCHITECTURE-DIAGRAM.md)
+> 系统全景参见：[`../../docs/PANORAMA.md`](../../docs/PANORAMA.md)
 
 ---
 
