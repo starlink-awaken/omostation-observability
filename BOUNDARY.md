@@ -14,7 +14,7 @@
 
 ### 入口
 
-- **Docker**: `docker compose up` Langfuse Web :3000, Postgres :5432
+- **Docker**: `docker compose up` Langfuse Web :3050, Postgres :5432
 
 ## 2. 上游依赖
 

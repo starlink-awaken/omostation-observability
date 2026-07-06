@@ -15,7 +15,7 @@
 ```mermaid
 
 graph LR
-    Apps[Applications] -->|OTLP| Langfuse[Langfuse :3000]
+    Apps[Applications] -->|OTLP| Langfuse[Langfuse :3050]
     Langfuse --> DB[(Postgres :5432)]
 
 ```
@@ -24,7 +24,7 @@ graph LR
 
 | Type | Entry | Port / Notes |
 |:--|:--|:--|
-| Docker | `docker compose up` | Langfuse Web :3000, Postgres :5432 |
+| Docker | `docker compose up` | Langfuse Web :3050, Postgres :5432 |
 
 ## 3. 核心模块
 

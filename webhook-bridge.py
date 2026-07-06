@@ -14,7 +14,7 @@ import time
 import urllib.request
 from pathlib import Path
 
-LANGFUSE_URL = os.environ.get("LANGFUSE_URL", "http://localhost:3000")
+LANGFUSE_URL = os.environ.get("LANGFUSE_URL", "http://localhost:3050")
 LANGFUSE_API_KEY = os.environ.get("LANGFUSE_API_KEY", "")
 OMO_WEBHOOK_URL = os.environ.get("OMO_WEBHOOK_URL", "http://localhost:9100/webhook")
 POLL_INTERVAL = int(os.environ.get("POLL_INTERVAL", "60"))

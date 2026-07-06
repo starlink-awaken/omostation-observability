@@ -9,7 +9,7 @@
 ## 关键路径
 
 1. 1. `docker compose up` starts Postgres and Langfuse containers
-2. 2. Langfuse Web exposed on :3000
+2. 2. Langfuse Web exposed on :3050
 3. 3. Postgres exposed on :5432 for external traces
 4. 4. kairon sends OTLP traces to Langfuse
 
