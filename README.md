@@ -1,5 +1,10 @@
 # observability
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Contributing](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+[![Security](https://img.shields.io/badge/security-policy-blue.svg)](SECURITY.md)
+[![Docker](https://img.shields.io/badge/Docker-supported-2496ED.svg)](https://www.docker.com/)
+
 > Langfuse + Webhook Bridge for eCOS observability.
 
 ## What This Project Does

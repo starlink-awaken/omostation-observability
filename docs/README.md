@@ -1,14 +1,15 @@
 # observability Documentation
 
-> Langfuse + Webhook Bridge 可观测性栈
-> Langfuse + Webhook Bridge observability stack.
+> X · Langfuse 可观测性
+> Stack: Docker
 
-This directory is the documentation home for **observability**. Detailed design documents live in the project root; use the index below to navigate.
+This directory collects project-level documentation for **observability**.
 
 ## Document Map
 
 - [`../README.md`](../README.md) — Project overview and quick start
-- [`../ARCHITECTURE.md`](../ARCHITECTURE.md) — Architecture and design
+- [`ARCHITECTURE.md`](ARCHITECTURE.md) — Architecture overview
+- [`API.md`](API.md) — API / command-line / usage reference
 - [`../BOUNDARY.md`](../BOUNDARY.md) — Boundaries and interfaces
 - [`../CALLCHAIN.md`](../CALLCHAIN.md) — Call chains and interaction flows
 - [`../CAPABILITY-MAP.md`](../CAPABILITY-MAP.md) — Capability map
@@ -17,6 +18,7 @@ This directory is the documentation home for **observability**. Detailed design 
 - [`../CHANGELOG.md`](../CHANGELOG.md) — Change log
 - [`../CONTRIBUTING.md`](../CONTRIBUTING.md) — Contribution guide
 - [`../SECURITY.md`](../SECURITY.md) — Security policy
+- [`../LICENSE`](../LICENSE) — MIT License
 
 ## Workspace Context
 
