@@ -69,6 +69,9 @@ docker compose config -q
 - [Project Registry](../../docs/project-registry.yaml)
 ## Project Governance
 
+- [Development](docs/DEVELOPMENT.md)
+- [Release Process](RELEASE.md)
+
 - [Governance](GOVERNANCE.md)
 - [Support](SUPPORT.md)
 
