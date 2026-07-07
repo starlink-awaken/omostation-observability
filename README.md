@@ -13,6 +13,20 @@
 - **Webhook Bridge**: Polls Langfuse events and forwards to OMO governance webhooks.
 - **Postgres**: Persistence layer for Langfuse.
 
+## Installation
+
+```bash
+# Clone the workspace recursively
+git clone --recursive https://github.com/starlink-awaken/omostation.git
+cd omostation/projects/observability
+
+# Pull and start services
+docker compose pull
+docker compose up -d
+```
+
+Requires Docker and Docker Compose.
+
 ## Quick Start
 
 ```bash
@@ -58,6 +72,7 @@ docker compose config -q
 - [Changelog](CHANGELOG.md)
 - [License](LICENSE)
 - [Code of Conduct](CODE_OF_CONDUCT.md)
+- [Contributors](CONTRIBUTORS.md)
 ## Getting Help
 
 - [FAQ](docs/FAQ.md)
