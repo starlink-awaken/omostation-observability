@@ -17,10 +17,13 @@ Thank you for contributing to this project. This guide covers how to set up a lo
 
 ## Project Structure
 
-- `src/` — Source code
-- `tests/` — Tests
+- `docker-compose.yml` — Langfuse + Postgres + OMO webhook-bridge 编排
+- `webhook-bridge.py` — 将 Langfuse 事件转发到 OMO governance webhook 的 sidecar 脚本
+- `.env.example` — 环境变量模板
 - `docs/` — Documentation
 - `README.md` — Project overview
+
+> 注：本项目是部署/集成面，以 Docker Compose 和单一桥接脚本为主，因此不存在传统意义上的 `src/` 源码目录与 `tests/` 单元测试目录。
 
 ## Coding Conventions
 
