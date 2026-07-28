@@ -16,17 +16,20 @@
 ## Quick Start
 
 ```bash
+# Prepare local credentials (fill in real values for shared or production use)
+cp .env.example .env
+
 # Start all services
-docker compose up -d
+docker compose --env-file .env up -d
 
 # Check status
-docker compose ps
+docker compose --env-file .env ps
 
 # View logs
-docker compose logs -f
+docker compose --env-file .env logs -f
 
 # Verify config
-docker compose config -q
+docker compose --env-file .env config -q
 ```
 
 ## Services
