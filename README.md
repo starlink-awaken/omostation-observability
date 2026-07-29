@@ -1,7 +1,5 @@
 # observability
 
-🌐 [简体中文](README.zh.md)
-
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Contributing](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 [![Security](https://img.shields.io/badge/security-policy-blue.svg)](SECURITY.md)
@@ -15,34 +13,23 @@
 - **Webhook Bridge**: Polls Langfuse events and forwards to OMO governance webhooks.
 - **Postgres**: Persistence layer for Langfuse.
 
-## Installation
-
-```bash
-# Clone the workspace recursively
-git clone --recursive https://github.com/starlink-awaken/omostation.git
-cd omostation/projects/observability
-
-# Pull and start services
-docker compose pull
-docker compose up -d
-```
-
-Requires Docker and Docker Compose.
-
 ## Quick Start
 
 ```bash
+# Prepare local credentials (fill in real values for shared or production use)
+cp .env.example .env
+
 # Start all services
-docker compose up -d
+docker compose --env-file .env up -d
 
 # Check status
-docker compose ps
+docker compose --env-file .env ps
 
 # View logs
-docker compose logs -f
+docker compose --env-file .env logs -f
 
 # Verify config
-docker compose config -q
+docker compose --env-file .env config -q
 ```
 
 ## Services
@@ -69,24 +56,8 @@ docker compose config -q
 - [Project Registry](../../docs/project-registry.yaml)
 ## Project Governance
 
-- [Maintainers](MAINTAINERS.md)
-- [Acknowledgments](ACKNOWLEDGMENTS.md)
-
-- [Development](docs/DEVELOPMENT.md)
-- [Release Process](RELEASE.md)
-
-- [Governance](GOVERNANCE.md)
-- [Support](SUPPORT.md)
-
 - [Contributing](CONTRIBUTING.md)
 - [Security Policy](SECURITY.md)
 - [Changelog](CHANGELOG.md)
 - [License](LICENSE)
 - [Code of Conduct](CODE_OF_CONDUCT.md)
-- [Contributors](CONTRIBUTORS.md)
-## Getting Help
-
-- [FAQ](docs/FAQ.md)
-- [Troubleshooting](docs/TROUBLESHOOTING.md)
-- [API / Usage Reference](docs/API.md)
-- [Architecture Overview](docs/ARCHITECTURE.md)
