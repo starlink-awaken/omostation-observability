@@ -1,3 +1,9 @@
+---
+type: ssot
+owner: governance-team
+last_updated: 2026-09-03
+---
+
 # observability 能力地图
 
 > Langfuse + Webhook Bridge · LLM 可观测性部署面 · X 层横切

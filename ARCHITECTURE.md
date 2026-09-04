@@ -1,3 +1,9 @@
+---
+type: ssot
+owner: governance-team
+last_updated: 2026-09-03
+---
+
 # observability — Architecture
 
 > **Layer**: X 横切框架  
