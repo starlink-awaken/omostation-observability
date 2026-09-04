@@ -1,3 +1,10 @@
+---
+type: derived
+source: projects/observability
+owner: governance-team
+last_updated: 2026-09-03
+---
+
 # observability Documentation
 
 > X · Langfuse 可观测性

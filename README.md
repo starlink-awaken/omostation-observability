@@ -1,3 +1,10 @@
+---
+type: derived
+source: projects/observability
+owner: governance-team
+last_updated: 2026-09-03
+---
+
 # observability
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
